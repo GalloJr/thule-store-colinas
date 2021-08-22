@@ -1,0 +1,38 @@
+{% if products|length > 0 %}
+    <div class="showcase clearfix best-sellers" data-tray-tst="vitrine_home">
+        <div class="container">
+            <ul>
+                {% if not utils.is_mobile and banner.extra5 %}
+                    <li class="col-sm-6">
+                        {{ banner.extra5 }}
+                    </li>
+                {% elseif utils.is_mobile and banner.extra10 %}
+                    {% if settings.enable_banner_default %}
+                        <li class="col-sm-6 banner-mobile">
+                            {{ banner.extra10 }}
+                        </li>
+                    {% endif %}
+                {% endif %}
+
+                {% for product in products %}
+                    {% if loop.index <= 4 %}
+                        {% set ranking = product.ranking %}
+                        <li class="col-sm-3" {{ loop.index == 3 ? 'style="clear:left"' }}>
+                            {% element 'snippets/product' {"product": product} %}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if not utils.is_mobile and banner.extra6 %}
+                    <li class="col-sm-6">
+                        {{ banner.extra6 }}
+                    </li>
+                {% elseif utils.is_mobile and banner.extra11 %}
+                    <li class="col-sm-6 banner-mobile">
+                        {{ banner.extra11 }}
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endif %}
