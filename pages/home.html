@@ -59,18 +59,6 @@
     "showcaseTitle": showcaseText,
     "showcaseCarousel": "s-carousel"
 } %}
- 
-{% if not utils.is_mobile and banner.extra4 %}
-    <div class="banners banner-widget-home">
-        {{ banner.extra4 }} 
-    </div> 
-{% elseif utils.is_mobile and banner.extra9 %}
-    {% if settings.enable_banner_default %}
-        <div class="banners banner-widget-home">
-            {{ banner.extra9 }} 
-        </div>
-    {% endif %} 
-{% endif %} 
 
 {% if settings.showcase_2 == "featured" %}
     {% set showcaseText = "Destaques" %}
@@ -125,6 +113,23 @@
     "showcaseTitle": showcaseText
 } %}
 
+{% if not utils.is_mobile and banner.extra4 %}
+    <div class="banners banner-widget-home">
+        {{ banner.extra4 }} 
+    </div> 
+{% elseif utils.is_mobile and banner.extra9 %}
+    {% if settings.enable_banner_default %}
+        <div class="banners banner-widget-home">
+            {{ banner.extra9 }} 
+        </div>
+    {% endif %} 
+{% endif %} 
+
+{% element 'showcase-best-sellers' { 
+    "products": products,
+    "showcaseTitle": showcaseText
+} %}
+
 {% if settings.showcase_3 == "featured" %}
     {% set showcaseText = "Destaques" %}
 {% elseif settings.showcase_3 == "new" %}
@@ -172,12 +177,6 @@
         }) %}
     {% endif %}
 {% endif %}
-
-{% element 'showcase' { 
-    "products": products,
-    "showcaseTitle": showcaseText,
-    "showcaseCarousel": "s-carousel promotion"
-} %}
 
 {% if banner.bottom %}
     <div class="banner banner-bottom {% if not settings.enable_banner_default %}mobile-off{% endif %}">

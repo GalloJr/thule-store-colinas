@@ -13,6 +13,12 @@
         {% endif %}
     {% endif %}
     
+    <div class="news-full" style="background: url('{{ themePath }}{{ settings.bg_news }}') center center no-repeat {{ settings.bg_news_color }}; ">
+        <div class="container ">
+            {% element 'snippets/newsletter' %}
+        </div>
+    </div>
+    
     {% if checkout == "false" %}
         {% if settings.hottags_position == 1 %}
         <div class="container">
@@ -26,12 +32,6 @@
         </div>
         {% endif %}         
     {% endif %}
-    
-    <div class="news-full" style="background: url('{{ themePath }}{{ settings.bg_news }}') center center no-repeat {{ settings.bg_news_color }}; ">
-        <div class="container ">
-            {% element 'snippets/newsletter' %}
-        </div>
-    </div>
     
     <div class="foo-content">
         <div class="container">
