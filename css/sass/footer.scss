@@ -1,6 +1,6 @@
 .foo-content{
     background: #000000;
-    border-top: 2px solid #ef88a0;
+    border-top: 2px solid #ffffff;
     
     > .container{ 
         border-bottom: 2px solid #ef88a0;
@@ -8,7 +8,7 @@
     }
     
     h3{ 
-        color: #000000;
+        color: #ffffff;
         margin-bottom: 20px;
         text-transform: none; 
         
@@ -16,7 +16,7 @@
     }
     
     h5{
-        color: #000000;
+        color: #ffffff;
         margin: 5px 0;
         padding: 0 0 0 5px;
         text-transform: uppercase;
@@ -82,7 +82,7 @@
     }
     
     > h3{
-        color: #000000;
+        color: #ffffff;
         text-transform: uppercase;
         @include typo(2.5rem, 400, $font, 2.5rem);
     }
@@ -150,7 +150,7 @@
     }
     
     > h3{
-        color: #000000;
+        color: #ffffff;
         text-transform: uppercase;
         @include typo(2.5rem, 400, $font, 2.5rem);
     }
