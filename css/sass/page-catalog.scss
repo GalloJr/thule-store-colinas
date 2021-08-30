@@ -75,7 +75,7 @@
             text-transform: uppercase;
             @include typo(2rem, 700, $font);
             
-            &:after {
+            /*&:after {
                 background: #fff;
                 border-bottom: 1px solid #a0a2a3;
                 border-top: 1px solid #a0a2a3;
@@ -84,7 +84,7 @@
                 height: 4px;
                 margin-top: 10px;
                 width: 100%;
-            }
+            }*/
         }
         
         h3{
