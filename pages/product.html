@@ -14,7 +14,7 @@
     {% element 'schema/product' {'product': product} %}
     <div class="clearfix">
         
-        <div class="col-md-6">
+        <div class="col-md-8">
             {% element 'snippets/breadcrumb' { "class": 'breadcrumb'} %}
             
             {% if product.images %}
@@ -29,10 +29,15 @@
             
         </div>
         
-        <div class="col-md-6">
+        <div class="col-md-4">
             {% if productHelper.banner() %}{{ productHelper.banner() }}{% endif %}
             <h1 class="product-name" itemprop="name">{{ product.name }}</h1>
             {% element 'product/rating' %}
+            
+            {% if product.additional_message %}
+                <div class="mensagem_adicional">{{ product.additional_message }}</div>    
+            {% endif %}
+            
             <div class="product-labels">
                 {{ productHelper.labels() }}
             </div>
@@ -80,9 +85,7 @@
                 <div class="shipping-result"></div>    
             </form>
             
-            {% if product.additional_message %}
-                <div class="mensagem_adicional">{{ product.additional_message }}</div>    
-            {% endif %}
+            
             
             <div class="product-social">
                 {{ productHelper.social() }}
@@ -93,7 +96,7 @@
 
 <section id="ProdBlock" class="product-tabs">
     <a name="formaPagto"></a>
-    <div id="ProdAbas" class="abasProduto tab-panel">
+    <!-- <div id="ProdAbas" class="abasProduto tab-panel">
         <ul class="clearfix">
             {% for key, tab in productTabs %}
               {% if tab.container_id %}
@@ -103,7 +106,7 @@
               {% endif %}
             {% endfor %}
         </ul>
-    </div>
+    </div> -->
 
     <div id="descricao" class="prodBox">
         <div class="board">
@@ -133,11 +136,18 @@
 
     {{ productTabs.custom.content }}
     {{ productTabs.downloads.content }}
-
+    
     <div id="garantia" class="prodBox">
-        <img class="loader" src="{{ tray.paths.system_image }}/big-loading.svg" style="display:none;" />
+        <div class="board">
+            <!-- {{ product.warranty }} -->
+            <h2 class="heading5">Garantia</h2>
+    <p><img width="160" height="250" style="float: right; width: 80px; height: 125px; margin: 0px 0px 1em 1em;" alt="Thule BringIt! Guarantee" src="https://images.tcdn.com.br/files/1039253/themes/11/img/ThuleGuarantee.png?350.7966439877176">A Thule dedica-se a fornecer produtos excepcionais com qualidade testada e garantia contra defeitos de materiais e mão de obra.</p>
+    <a href="/pt-br/about-thule/warranty" id="main_0_mainframed_0_ctl00_warrantyLink">
+                        Ver detalhes da garantia
+                    </a>
+        </div>
     </div>
-    <div data-app="product.payment-methods" id="formasPagto" class="prodBox" style="display:none;" ></div>
+    <div data-app="product.payment-methods" id="formasPagto" class="prodBox" ></div>
 </section>
 
 {% if productHelper.bundle() %}

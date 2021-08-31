@@ -2,7 +2,7 @@
     <a href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" data-tray-tst="vitrine_produto_link_imagem">
         <div class="product-image">
             {% if product.images %}
-                <img src="{{ product.images[0].full }}" alt="{{ product.name }}" title="{{ product.name }}">
+                <img src="{{ product.images[0].full }}" alt="{{ product.name }}" title="{{ product.name }}" >
             {% else %}
                 <img src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada" title="{{ product.name }}" width="100">
             {% endif %}
