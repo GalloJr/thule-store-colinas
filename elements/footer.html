@@ -1,36 +1,38 @@
 {% set checkout = "checkout" in pages.current ? "true" : "false" %}
 <footer> 
-    
-    {% if settings.store_rating %}
-        {% if checkout == "false" and pages.current != "depoimentos" %}
-        <div class="container {{pages.current}}">
-            <div class="foo-rating">
-                <h4>As melhores</h4>
-                <h3>Avalia&ccedil;&otilde;es</h3>
-                {% element 'CustomerReview.reviews' %}
-            </div>
-        </div>
-        {% endif %}
-    {% endif %}
-    
     <div class="news-full" style="background: url('{{ themePath }}{{ settings.bg_news }}') center center no-repeat {{ settings.bg_news_color }}; ">
         <div class="container ">
             {% element 'snippets/newsletter' %}
         </div>
     </div>
     
-    {% if checkout == "false" %}
-        {% if settings.hottags_position == 1 %}
-        <div class="container">
-            <div class="tagcloud">
-                <h4>As palavras</h4>
-                <h3>{{ Translation('tags_mais_buscadas') }}</h3>    
-                {% for tag in tags %}
-                  <a href="{{ tag.url }}" style="font-size: {{ tag.font_size }}%">{{ tag.word }}</a>
-                {% endfor %}     
+    {% if pages.current == "home" %}
+        <!-- Subtstituir por avaliações Google!!! 
+        {% if settings.store_rating %}
+            {% if checkout == "false" and pages.current != "depoimentos" %}
+            <div class="container {{pages.current}}">
+                <div class="foo-rating">
+                    <h4>As melhores</h4>
+                    <h3>Avalia&ccedil;&otilde;es</h3>
+                    {% element 'CustomerReview.reviews' %}
+                </div>
             </div>
-        </div>
-        {% endif %}         
+            {% endif %}
+        {% endif %}-->
+        
+        {% if checkout == "false" %}
+            {% if settings.hottags_position == 1 %}
+            <div class="container">
+                <div class="tagcloud">
+                    <h4>As palavras</h4>
+                    <h3>{{ Translation('tags_mais_buscadas') }}</h3>    
+                    {% for tag in tags %}
+                      <a href="{{ tag.url }}" style="font-size: {{ tag.font_size }}%">{{ tag.word }}</a>
+                    {% endfor %}     
+                </div>
+            </div>
+            {% endif %}         
+        {% endif %}
     {% endif %}
     
     <div class="foo-content">

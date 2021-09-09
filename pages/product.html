@@ -107,46 +107,59 @@
             {% endfor %}
         </ul>
     </div> -->
-
-    <div id="descricao" class="prodBox">
-        <div class="board">
-            <div class="board_htm description">
-                {{ product.description ? product.description : product.description_small }}
+    
+    <div class="clearfix">
+        <div class="col-md-6">
+            <div id="descricao" class="prodBox">
+                <div class="board">
+                    <h1 class="product-name"> Especificações Técnicas </h1></br>
+                    <div class="board_htm description">
+                        {{ product.description ? product.description : product.description_small }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div id="garantia" class="prodBox">
+                <div class="board">
+                    <!-- {{ product.warranty }} -->
+                    <h1 class="product-name">Garantia</h1></br>
+                    <div class="board_htm description">
+                        <p><img width="160" height="250" style="float: right; width: 80px; height: 125px; margin: 0px 0px 1em 1em;" alt="Thule BringIt! Guarantee" src="https://images.tcdn.com.br/files/1039253/themes/11/img/ThuleGuarantee.png?350.7966439877176">A Thule dedica-se a fornecer produtos excepcionais com qualidade testada e garantia contra defeitos de materiais e mão de obra.</p>
+                        <a href="/pt-br/about-thule/warranty" id="main_0_mainframed_0_ctl00_warrantyLink"></br>
+                                Ver detalhes da garantia
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <div id="itensInclusos" class="prodBox">
-        <div class="board">
-            {{ product.included_items }}
-        </div>
+    <hr>
+    <!-- <h1 class="product-name">Informações Essenciais</h1> -->
+    <div class="board_htm description">
+        {{ productTabs.custom.content }}
+        {{ productTabs.downloads.content }}
     </div>
-
-    <div id="coments" class="prodBox">
-        <div class="board">
-            {% element 'product/comments' %}
-        </div>
-    </div>
-
+    
     <div id="caracteristicas" class="prodBox">
         <div class='board'>
             {% element 'product/properties' %}
         </div>
     </div>
-
-    {{ productTabs.custom.content }}
-    {{ productTabs.downloads.content }}
     
-    <div id="garantia" class="prodBox">
+    <div id="itensInclusos" class="prodBox">
         <div class="board">
-            <!-- {{ product.warranty }} -->
-            <h2 class="heading5">Garantia</h2>
-    <p><img width="160" height="250" style="float: right; width: 80px; height: 125px; margin: 0px 0px 1em 1em;" alt="Thule BringIt! Guarantee" src="https://images.tcdn.com.br/files/1039253/themes/11/img/ThuleGuarantee.png?350.7966439877176">A Thule dedica-se a fornecer produtos excepcionais com qualidade testada e garantia contra defeitos de materiais e mão de obra.</p>
-    <a href="/pt-br/about-thule/warranty" id="main_0_mainframed_0_ctl00_warrantyLink">
-                        Ver detalhes da garantia
-                    </a>
+            {{ product.included_items }}
         </div>
     </div>
+    <hr>
+    <div id="coments" class="prodBox">
+        <div class="board">
+            {% element 'product/comments' %}
+        </div>
+    </div>
+    
     <div data-app="product.payment-methods" id="formasPagto" class="prodBox" ></div>
 </section>
 
@@ -174,14 +187,14 @@
 </section>
 {% endif %}
 
-{% if settings.history_position == 1 %}
+<!-- {% if settings.history_position == 1 %}
     <div id="prognoos_ib"></div>
     <section class="products-visited">
         <h4>Confira os produtos</h4>
         <h3 class="related-title">Visitados</h3>
         {% element 'snippets/history' %} 
     </section> 
-{% endif %}
+{% endif %} -->
 
 {% if banner.bottom %}
     <div class="banner banner-bottom {% if not settings.enable_banner_default %}mobile-off{% endif %}">

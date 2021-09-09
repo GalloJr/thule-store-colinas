@@ -106,7 +106,7 @@
                 <section class="page-content {{ 'central' in pages.current ? 'col-sm-9' : '' }}">
                     {{ content_for_layout }}
 
-                    {% if pages.current in ['catalog', 'search'] %}
+                    <!-- {% if pages.current in ['catalog', 'search'] %}
                         {% if settings.history_position == 1 %}
                             <div id="prognoos_ib"></div>
                             <section class="products-visited">
@@ -114,7 +114,7 @@
                                 {% element 'snippets/history' %}
                             </section>
                         {% endif %}
-                    {% endif %}
+                    {% endif %} -->
                 </section>
             </main>
 
@@ -134,7 +134,7 @@
             {% endif %}
         {% endif %}
 
-        {% if pages.current in ['catalog', 'search', 'product'] %}
+        <!-- {% if pages.current in ['catalog', 'search', 'product'] %}
             {% if settings.history_position == 2 %}
                 <div id="prognoos_ib"></div>
                 <section class="products-visited col-sm-12">
@@ -142,10 +142,10 @@
                     {% element 'snippets/history' %}
                 </section>
             {% endif %}
-        {% endif %}
+        {% endif %} -->
     </div>
 
-    {% element 'snippets/credits' %}
+    <!-- {% element 'snippets/credits' %} -->
 
     {% if pages.current != 'login' and pages.current != 'product' %}
         {% element 'snippets/tray_login' %}
